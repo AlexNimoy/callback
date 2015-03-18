@@ -1,0 +1,43 @@
+<?php
+
+//Отображаем блок на странице настройки блоков
+function callback_block_info() {
+  $blocks['callback'] = array(
+    'info' => t('Обратный звонок'),
+    'cache' => DRUPAL_NO_CACHE,
+  );
+  return $blocks;
+}
+
+//Строим форму
+function callback_form($form_state,&$form_submit){
+  $form['name']=array(
+    '#title'=>t('Имя'),
+    '#type'=>'textfield',
+    '#required'=>TRUE,
+    '#maxlength'=> 50,
+    '#size'=>30,
+  );
+  
+  $form['phone']=array(
+    '#title'=>t('Телефон'),
+    '#type'=>'textfield',
+    '#required'=>TRUE,
+    '#maxlength'=> 50,
+    '#size'=>30,
+  );
+  
+  $form['submit']=array(
+    '#type'=>'submit',
+    '#value'=>t('Отправить'),
+  );
+  
+  return $form;
+}
+
+//Выводим блок
+function callback_block_view($delta = '') {
+  $block = array();
+      $block['content'] = drupal_get_form('callback_form');
+  return $block;
+}
