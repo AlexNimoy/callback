@@ -1,4 +1,5 @@
 name=Callback
 description=Формы обратной связи.
 package=User feedback
+dependencies[] = jquery_update
 core=7.x

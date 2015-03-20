@@ -1,5 +1,10 @@
 <?php
 
+function callback_init() {
+  drupal_add_js(drupal_get_path('module', 'callback') .'/js/callback.js');
+  drupal_add_js(drupal_get_path('module', 'callback') .'/js/jquery.maskedinput.min.js');
+}
+
 //Отображаем блок на странице настройки блоков
 function callback_block_info() {
   $blocks['callback'] = array(
